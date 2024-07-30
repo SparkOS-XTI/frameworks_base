@@ -575,11 +575,11 @@ public class DisplayPolicy {
 
                     @Override
                     public void onScroll(boolean started) {
-                    	if (started) {
-                          if (mService.mPowerManagerInternal != null) {
-                              mService.mPowerManagerInternal.setPowerBoost(
-                                     Boost.DISPLAY_UPDATE_IMMINENT, 500);
-                         }
+                        if (started) {
+                            PowerBoostSetter mPowerBoostSetter = new PowerBoostSetter();
+                            if (mPowerBoostSetter != null) {
+                                mPowerBoostSetter.boostPower();
+                            }
                         }
                     }
 

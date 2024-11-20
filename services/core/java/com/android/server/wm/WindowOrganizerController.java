@@ -919,10 +919,8 @@ class WindowOrganizerController extends IWindowOrganizerController.Stub
                 }
                 final Intent activityIntent = hop.getActivityIntent();
                 final Bundle activityOptions = hop.getLaunchOptions();
-                final SafeActivityOptions safeOptions =
-                        SafeActivityOptions.fromBundle(activityOptions, caller.mPid, caller.mUid);
                 final int result = mService.getActivityStartController()
-                        .startActivityInTaskFragment(tf, activityIntent, safeOptions,
+                        .startActivityInTaskFragment(tf, activityIntent, activityOptions,
                                 hop.getCallingActivity(), caller.mUid, caller.mPid,
                                 errorCallbackToken);
                 if (!isStartResultSuccessful(result)) {
